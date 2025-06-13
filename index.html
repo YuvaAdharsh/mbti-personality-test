@@ -548,24 +548,168 @@
     </div>
 
     <script>
-        // Personality type descriptions
+        // Personality type descriptions and compatibility data
         const personalityTypes = {
-            "INTJ": { name: "The Mastermind", description: "Strategic, independent, and determined. You see the big picture and work systematically toward your goals." },
-            "INTP": { name: "The Thinker", description: "Logical, analytical, and curious. You love exploring ideas and understanding how things work." },
-            "ENTJ": { name: "The Commander", description: "Natural leader, strategic, and ambitious. You excel at organizing people and resources." },
-            "ENTP": { name: "The Debater", description: "Quick-witted, innovative, and outspoken. You love exploring new possibilities and challenging ideas." },
-            "INFJ": { name: "The Advocate", description: "Creative, insightful, and principled. You're driven by your values and vision for the future." },
-            "INFP": { name: "The Mediator", description: "Idealistic, creative, and caring. You're guided by your values and seek harmony." },
-            "ENFJ": { name: "The Protagonist", description: "Charismatic, inspiring, and altruistic. You naturally lead and motivate others." },
-            "ENFP": { name: "The Campaigner", description: "Enthusiastic, creative, and sociable. You see potential in people and situations." },
-            "ISTJ": { name: "The Inspector", description: "Practical, responsible, and detail-oriented. You value tradition and reliability." },
-            "ISFJ": { name: "The Protector", description: "Caring, reliable, and hardworking. You're dedicated to helping others." },
-            "ESTJ": { name: "The Executive", description: "Organized, practical, and decisive. You excel at managing people and projects." },
-            "ESFJ": { name: "The Consul", description: "Caring, social, and popular. You're attentive to others' needs and feelings." },
-            "ISTP": { name: "The Virtuoso", description: "Bold, practical, and adaptable. You're a master of tools and techniques." },
-            "ISFP": { name: "The Adventurer", description: "Flexible, charming, and artistic. You live in the moment and follow your heart." },
-            "ESTP": { name: "The Entrepreneur", description: "Energetic, perceptive, and spontaneous. You live life to the fullest." },
-            "ESFP": { name: "The Entertainer", description: "Spontaneous, enthusiastic, and people-oriented. You bring joy to others." }
+            "INTJ": { 
+                name: "The Mastermind", 
+                description: "Strategic, independent, and determined. You see the big picture and work systematically toward your goals.",
+                compatibility: {
+                    romantic: ["ENFP", "ENTP", "INFJ"],
+                    friends: ["INTJ", "INFJ", "ENTP"],
+                    work: ["ENFJ", "ENTJ", "ISTJ"],
+                    challenging: ["ESFP", "ISFP", "ESFJ"]
+                }
+            },
+            "INTP": { 
+                name: "The Thinker", 
+                description: "Logical, analytical, and curious. You love exploring ideas and understanding how things work.",
+                compatibility: {
+                    romantic: ["ENTJ", "ENFJ", "INFJ"],
+                    friends: ["INTP", "ENTP", "INTJ"],
+                    work: ["ENFP", "ISTJ", "ESTJ"],
+                    challenging: ["ESFJ", "ISFJ", "ESTJ"]
+                }
+            },
+            "ENTJ": { 
+                name: "The Commander", 
+                description: "Natural leader, strategic, and ambitious. You excel at organizing people and resources.",
+                compatibility: {
+                    romantic: ["INFP", "INTP", "ENFP"],
+                    friends: ["ENTJ", "INTJ", "ENTP"],
+                    work: ["ISTJ", "ISFJ", "ESTJ"],
+                    challenging: ["ISFP", "ESFP", "ISFJ"]
+                }
+            },
+            "ENTP": { 
+                name: "The Debater", 
+                description: "Quick-witted, innovative, and outspoken. You love exploring new possibilities and challenging ideas.",
+                compatibility: {
+                    romantic: ["INFJ", "INTJ", "ENFJ"],
+                    friends: ["ENTP", "ENFP", "INTP"],
+                    work: ["ISTJ", "ISFJ", "INFJ"],
+                    challenging: ["ISFJ", "ESFJ", "ISTJ"]
+                }
+            },
+            "INFJ": { 
+                name: "The Advocate", 
+                description: "Creative, insightful, and principled. You're driven by your values and vision for the future.",
+                compatibility: {
+                    romantic: ["ENFP", "ENTP", "INFP"],
+                    friends: ["INFJ", "ENFJ", "INFP"],
+                    work: ["ENTJ", "ENFJ", "ISTJ"],
+                    challenging: ["ESTP", "ESFP", "ESTJ"]
+                }
+            },
+            "INFP": { 
+                name: "The Mediator", 
+                description: "Idealistic, creative, and caring. You're guided by your values and seek harmony.",
+                compatibility: {
+                    romantic: ["ENFJ", "ENTJ", "INFJ"],
+                    friends: ["INFP", "ENFP", "ISFP"],
+                    work: ["ENFJ", "ISTJ", "ISFJ"],
+                    challenging: ["ESTJ", "ENTJ", "ESTP"]
+                }
+            },
+            "ENFJ": { 
+                name: "The Protagonist", 
+                description: "Charismatic, inspiring, and altruistic. You naturally lead and motivate others.",
+                compatibility: {
+                    romantic: ["INFP", "ISFP", "INTP"],
+                    friends: ["ENFJ", "INFJ", "ENFP"],
+                    work: ["ISTJ", "ISFJ", "INTJ"],
+                    challenging: ["ISTP", "ESTP", "ISTJ"]
+                }
+            },
+            "ENFP": { 
+                name: "The Campaigner", 
+                description: "Enthusiastic, creative, and sociable. You see potential in people and situations.",
+                compatibility: {
+                    romantic: ["INFJ", "INTJ", "INFP"],
+                    friends: ["ENFP", "ENTP", "ISFP"],
+                    work: ["ENFJ", "INTP", "ISTJ"],
+                    challenging: ["ISTP", "ESTP", "ISTJ"]
+                }
+            },
+            "ISTJ": { 
+                name: "The Inspector", 
+                description: "Practical, responsible, and detail-oriented. You value tradition and reliability.",
+                compatibility: {
+                    romantic: ["ESFP", "ESTP", "ISFP"],
+                    friends: ["ISTJ", "ISFJ", "ESTJ"],
+                    work: ["ENTJ", "ENFJ", "ESTJ"],
+                    challenging: ["ENFP", "ENTP", "ESFP"]
+                }
+            },
+            "ISFJ": { 
+                name: "The Protector", 
+                description: "Caring, reliable, and hardworking. You're dedicated to helping others.",
+                compatibility: {
+                    romantic: ["ESTP", "ESFP", "ISFP"],
+                    friends: ["ISFJ", "ISTJ", "ESFJ"],
+                    work: ["ENTJ", "ENFJ", "ESTJ"],
+                    challenging: ["ENTP", "ENFP", "ESTP"]
+                }
+            },
+            "ESTJ": { 
+                name: "The Executive", 
+                description: "Organized, practical, and decisive. You excel at managing people and projects.",
+                compatibility: {
+                    romantic: ["ISFP", "ISTP", "INFP"],
+                    friends: ["ESTJ", "ISTJ", "ESFJ"],
+                    work: ["ISFJ", "ISTJ", "ENFJ"],
+                    challenging: ["INFP", "ENFP", "ISFP"]
+                }
+            },
+            "ESFJ": { 
+                name: "The Consul", 
+                description: "Caring, social, and popular. You're attentive to others' needs and feelings.",
+                compatibility: {
+                    romantic: ["ISFP", "ISTP", "INFP"],
+                    friends: ["ESFJ", "ISFJ", "ESTJ"],
+                    work: ["ISTJ", "ISFJ", "ENTJ"],
+                    challenging: ["INTP", "ENTP", "ISTP"]
+                }
+            },
+            "ISTP": { 
+                name: "The Virtuoso", 
+                description: "Bold, practical, and adaptable. You're a master of tools and techniques.",
+                compatibility: {
+                    romantic: ["ESFJ", "ESTJ", "ISFJ"],
+                    friends: ["ISTP", "ESTP", "ISFP"],
+                    work: ["ESTJ", "ENTJ", "ISFJ"],
+                    challenging: ["ENFJ", "INFJ", "ESFJ"]
+                }
+            },
+            "ISFP": { 
+                name: "The Adventurer", 
+                description: "Flexible, charming, and artistic. You live in the moment and follow your heart.",
+                compatibility: {
+                    romantic: ["ESFJ", "ESTJ", "ENFJ"],
+                    friends: ["ISFP", "ENFP", "INFP"],
+                    work: ["ESTJ", "ESFJ", "ENFJ"],
+                    challenging: ["ENTJ", "INTJ", "ESTJ"]
+                }
+            },
+            "ESTP": { 
+                name: "The Entrepreneur", 
+                description: "Energetic, perceptive, and spontaneous. You live life to the fullest.",
+                compatibility: {
+                    romantic: ["ISFJ", "ISTJ", "INFJ"],
+                    friends: ["ESTP", "ESFP", "ISTP"],
+                    work: ["ISFJ", "ISTJ", "INFJ"],
+                    challenging: ["INFJ", "INTJ", "ISFJ"]
+                }
+            },
+            "ESFP": { 
+                name: "The Entertainer", 
+                description: "Spontaneous, enthusiastic, and people-oriented. You bring joy to others.",
+                compatibility: {
+                    romantic: ["ISFJ", "ISTJ", "INFJ"],
+                    friends: ["ESFP", "ENFP", "ESTP"],
+                    work: ["ISFJ", "ISTJ", "INFJ"],
+                    challenging: ["INTJ", "INFJ", "ISTJ"]
+                }
+            }
         };
 
         // Handle button click instead of form submission
@@ -646,9 +790,159 @@
                 <h1 style="font-size: 3rem; margin: 20px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${type}</h1>
                 <h3 style="margin-bottom: 15px;">${personality.name}</h3>
                 <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.6;">${personality.description}</p>
+                
+                <div style="margin-top: 30px; text-align: left;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h3 style="color: white; margin-bottom: 15px; text-align: center;">💖 Best Romantic Matches for ${type}:</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${personality.compatibility.romantic.map(match => `
+                                <li style="margin: 8px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                    <strong>${match}</strong> – ${getCompatibilityReason(type, match, 'romantic')}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h3 style="color: white; margin-bottom: 15px; text-align: center;">🤝 Great Friends:</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${personality.compatibility.friends.map(match => `
+                                <li style="margin: 8px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                    <strong>${match}</strong> – ${getCompatibilityReason(type, match, 'friends')}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h3 style="color: white; margin-bottom: 15px; text-align: center;">💼 Work Allies:</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${personality.compatibility.work.map(match => `
+                                <li style="margin: 8px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                    <strong>${match}</strong> – ${getCompatibilityReason(type, match, 'work')}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 2px solid rgba(255,255,255,0.3);">
+                        <h3 style="color: #FFE6E6; margin-bottom: 15px; text-align: center;">⚠️ Less Compatible Types:</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 10px; opacity: 0.9; text-align: center;">(Can lead to frustration if values clash)</p>
+                        <ul style="list-style: none; padding: 0;">
+                            ${personality.compatibility.challenging.map(match => `
+                                <li style="margin: 8px 0; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                    <strong>${match}</strong> – ${getCompatibilityReason(type, match, 'challenging')}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; text-align: center;">
+                        <h3 style="color: white; margin-bottom: 10px;">✅ Pro Tip:</h3>
+                        <p style="font-size: 1rem; line-height: 1.5; opacity: 0.95;">
+                            Compatibility depends on maturity, communication, and shared values – not just MBTI. 
+                            Opposites can work beautifully when both people grow together! 💫
+                        </p>
+                    </div>
+                </div>
             `;
             
             resultsDiv.style.display = 'block';
+        }
+
+        function getCompatibilityReason(userType, matchType, category) {
+            const reasons = {
+                // ENFP compatibility reasons
+                'ENFP': {
+                    'INFJ': {
+                        romantic: 'Deep connection, emotional balance, soulful understanding',
+                        friends: 'Shared intuition, meaningful conversations',
+                        work: 'Visionary collaboration, people-focused goals'
+                    },
+                    'INTJ': {
+                        romantic: 'Visionary partner, balances spontaneity with strategy',
+                        friends: 'Intellectual depth, complementary strengths',
+                        work: 'Strategic planning meets creative energy'
+                    },
+                    'INFP': {
+                        romantic: 'Values-driven and emotionally attuned like you',
+                        friends: 'Creative harmony, mutual inspiration',
+                        work: 'Shared idealism, authentic collaboration'
+                    },
+                    'ENTP': {
+                        friends: 'Energetic, playful, idea-driven duo',
+                        work: 'Innovation powerhouse, boundless creativity'
+                    },
+                    'ISFP': {
+                        friends: 'Creative harmony, mutual inspiration',
+                        work: 'Artistic collaboration, gentle support'
+                    },
+                    'ISTP': {
+                        challenging: 'May seem emotionally distant or overly practical'
+                    },
+                    'ESTP': {
+                        challenging: 'Different energy styles, focus conflicts'
+                    },
+                    'ISTJ': {
+                        challenging: 'Rigid or too rule-bound for your spontaneous spirit'
+                    }
+                }
+                // Add more compatibility reasons for other types as needed
+            };
+
+            // Generic fallback reasons if specific ones aren't defined
+            const genericReasons = {
+                romantic: {
+                    'NF': 'Emotional depth and shared values',
+                    'NT': 'Intellectual stimulation and growth',
+                    'SF': 'Caring nature and practical support',
+                    'ST': 'Stability and grounded perspective'
+                },
+                friends: {
+                    'same': 'Natural understanding and shared interests',
+                    'complementary': 'Different strengths, mutual growth'
+                },
+                work: {
+                    'organized': 'Brings structure to complement your creativity',
+                    'people': 'Shared focus on people and relationships',
+                    'thinking': 'Logical perspective balances your intuition'
+                },
+                challenging: {
+                    'different': 'Very different approaches to life and decisions',
+                    'clash': 'Potential value conflicts and misunderstandings'
+                }
+            };
+
+            // Try to get specific reason first
+            if (reasons[userType] && reasons[userType][matchType] && reasons[userType][matchType][category]) {
+                return reasons[userType][matchType][category];
+            }
+
+            // Fallback to generic reasons
+            if (category === 'friends' && userType === matchType) {
+                return genericReasons.friends.same;
+            }
+
+            // More generic fallbacks based on type patterns
+            const matchPattern = matchType.substring(0, 2);
+            if (category === 'romantic') {
+                if (matchPattern.includes('N') && matchPattern.includes('F')) return genericReasons.romantic.NF;
+                if (matchPattern.includes('N') && matchPattern.includes('T')) return genericReasons.romantic.NT;
+                if (matchPattern.includes('S') && matchPattern.includes('F')) return genericReasons.romantic.SF;
+                if (matchPattern.includes('S') && matchPattern.includes('T')) return genericReasons.romantic.ST;
+            }
+
+            if (category === 'work') {
+                if (matchType.includes('J')) return genericReasons.work.organized;
+                if (matchType.includes('F')) return genericReasons.work.people;
+                if (matchType.includes('T')) return genericReasons.work.thinking;
+            }
+
+            if (category === 'challenging') {
+                return genericReasons.challenging.different;
+            }
+
+            return 'Natural compatibility and mutual understanding';
         }
 
         // Add visual feedback for radio button selections
